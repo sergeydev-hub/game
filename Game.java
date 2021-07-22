@@ -33,7 +33,6 @@ public class Game {
                 }
             }
         }
-
         
         random.nextBytes(bytes);
         String encodedKey = new BigInteger(1, bytes).toString(16);
@@ -48,15 +47,14 @@ public class Game {
         byte[] digest = signer.doFinal(messageStr.getBytes("utf-8"));
         String encodedHmac = new BigInteger(1, digest).toString(16);
 
-
-        
         System.out.println("HMAC: " + encodedHmac);
-
         System.out.println("Available moves:");
+        
         for (int i = 0; i < args.length; i++) {
             System.out.println(i+1 + " - " + args[i]);
         }
         System.out.println("0 - exit");
+        
         Scanner sc = new Scanner(System.in);
         int userMove;
         do{
@@ -94,8 +92,6 @@ public class Game {
                 }
             }
         }
-        
-
         System.out.println("HMACKey: " + encodedKey);
     }
 }
